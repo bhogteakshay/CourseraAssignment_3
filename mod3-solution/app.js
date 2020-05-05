@@ -13,7 +13,7 @@ function FoundItemsDirective() {
     templateUrl: 'menuItem.html',
     scope:{
         found:'<',
-        onRemove: '&',
+        onRemove : '&',
     },
     controller: MenuServiceDirectiveController,
     controllerAs:'menu',
@@ -46,9 +46,9 @@ function NarrowItDownController(MenuSearchService){
           })
     }
 
-    menu.removeItem = function(index){
-        MenuSearchService.removeItem(index);
-    };
+    menu.removeItem =function(index){
+       MenuSearchService.remove(index);
+   }
 
 }
 
@@ -86,8 +86,9 @@ function MenuSearchService($http){
       return found;
   };
 
-  service.removeItem = function(index){
-      found.splice(index, 1);
+  service.remove = function (index)
+  {
+      found.splice(index,1);
   }
 
 }
