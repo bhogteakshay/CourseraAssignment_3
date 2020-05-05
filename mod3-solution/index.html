@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <title>Assignment 3</title>
+  </head>
+  <body ng-app="NarrowItDownApp">
+      <div ng-controller="NarrowItDownController as menu">
+        <h3>List of selected menus</h3>
+        <input type="text" ng-model="menu.SearchTerm">
+        <button type="button" name="button" ng-click="menu.searchMenuItem();">Narrow It Down For Me!</button>
+        <found-items
+            found="menu.found"
+            on-remove="menu.removeItem(index)"></found-items>
+            <div  ng-if="menu.found.length==0">Nothing found</div>
+      </div>
+
+  </body>
+</html>
